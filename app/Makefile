@@ -3,28 +3,25 @@
 test:
 	@./gradlew test
 
+rebuild: clean build install-dist
+	@clear
+
+build: checkstyle
+	@./gradlew build
+
 checkstyle:
 	@./gradlew checkstyleMain
 	@./gradlew checkstyleTest
 
-build:
-	@check
-	@./gradlew build
-
 install-dist:
 	@./gradlew installDist
-
-rebuild:
-	@./gradlew clean
-	@check
-	@build
-	@install-dist
-	@clear
 
 report:
 	@./gradlew jacocoTestReport
 
-
 run-dist:
 	@./build/install/app/bin/app
+
+clean:
+	@./gradlew clean
 
