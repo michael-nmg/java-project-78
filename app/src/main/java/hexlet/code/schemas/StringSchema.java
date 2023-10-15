@@ -37,7 +37,7 @@ public class StringSchema implements Schema {
     public boolean isValid(Object object) {
         boolean result = true;
         for (var param : parametrs) {
-            result = param.test(object);
+            result &= param.test(object);
         }
         return result;
     }

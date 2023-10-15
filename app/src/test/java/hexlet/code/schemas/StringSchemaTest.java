@@ -59,8 +59,25 @@ class StringSchemaTest {
         var actual1 = schema.minLength(5).isValid("word");
         assertFalse(actual1);
 
-        var actual2 = schema.minLength(4).isValid("word");
+        var actual2 = schema.minLength(5).isValid("word123");
         assertTrue(actual2);
+    }
+
+    @Test
+    void fullTest() {
+        var actual1 = validator.string()
+                .required()
+                .minLength(5)
+                .contains("hex")
+                .isValid("hexlet");
+        assertTrue(actual1);
+
+        var actual2 = validator.string()
+                .required()
+                .minLength(5)
+                .contains("gex")
+                .isValid("gexl");
+        assertFalse(actual2);
     }
 
 }
