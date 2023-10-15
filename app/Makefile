@@ -3,7 +3,7 @@
 test:
 	@./gradlew test
 
-check:
+checkstyle:
 	@./gradlew checkstyleMain
 	@./gradlew checkstyleTest
 

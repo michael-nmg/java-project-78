@@ -5,6 +5,5 @@
 
 #### Description:
 
-**A data validator is a library with which you can check the correctness of any data. There are many similar libraries in every language, since almost all programs work with external data that needs to be checked for correctness. First of all, we are talking about the data of forms filled in by users. The [yup](https://github.com/jquense/yup) library is taken as the basis for the project.**
-
+A data validator is a library with which you can check the correctness of any data. There are many similar libraries in every language, since almost all programs work with external data that needs to be checked for correctness. First of all, we are talking about the data of forms filled in by users. The [yup](https://github.com/jquense/yup) library is taken as the basis for the project.
 
