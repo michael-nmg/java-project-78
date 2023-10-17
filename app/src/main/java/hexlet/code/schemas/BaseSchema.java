@@ -7,12 +7,12 @@ import java.util.function.Predicate;
 import hexlet.code.requirements.Requirement;
 import hexlet.code.requirements.NotRequirement;
 
-public abstract class Schema {
+public abstract class BaseSchema {
 
     private Requirement requirement = new NotRequirement();
     private final List<Predicate<Object>> predicates = new ArrayList<>();
 
-    public abstract Schema required();
+    public abstract BaseSchema required();
 
     public boolean isValid(Object object) {
         if (requirement.notUse()) {
@@ -31,8 +31,8 @@ public abstract class Schema {
         predicates.add(predicate);
     }
 
-    public void setState(Requirement requirement) {
-        this.requirement = requirement;
+    public void setState(Requirement state) {
+        this.requirement = state;
     }
 
 }
