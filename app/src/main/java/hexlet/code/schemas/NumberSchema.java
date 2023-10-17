@@ -6,12 +6,9 @@ import hexlet.code.requirements.UseRequirement;
 
 public final class NumberSchema extends BaseSchema {
 
-    public NumberSchema() {
-        addPredicate(Integer.class::isInstance);
-    }
-
     public NumberSchema required() {
         setState(new UseRequirement());
+        addPredicate(Integer.class::isInstance);
         return this;
     }
 
