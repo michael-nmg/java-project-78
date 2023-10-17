@@ -6,12 +6,9 @@ import hexlet.code.requirements.UseRequirement;
 
 public final class StringSchema extends BaseSchema {
 
-    public StringSchema() {
-        addPredicate(String.class::isInstance);
-    }
-
     public StringSchema required() {
         setState(new UseRequirement());
+        addPredicate(String.class::isInstance);
         return this;
     }
 
