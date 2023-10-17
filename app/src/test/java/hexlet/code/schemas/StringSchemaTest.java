@@ -23,6 +23,10 @@ class StringSchemaTest {
     void nonRequiredTest() {
         assertTrue(schema.isValid(""));
         assertTrue(schema.isValid(null));
+        assertTrue(schema.contains("word").isValid(null));
+
+        schema.required();
+        assertFalse(schema.isValid(null));
     }
 
     @Test
