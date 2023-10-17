@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 
 import hexlet.code.requirements.UseRequirement;
 
-public final class StringSchema extends Schema {
+public final class StringSchema extends BaseSchema {
 
     public StringSchema() {
         addPredicate(String.class::isInstance);
