@@ -15,12 +15,8 @@ public abstract class BaseSchema {
     public abstract BaseSchema required();
 
     public boolean isValid(Object object) {
-        if (requirement.notUse()) {
+        if (requirement.notUsed() && (object == null || object == "")) {
             return true;
-        }
-
-        if (object == null || object == "") {
-            return false;
         }
 
         return predicates.stream()
