@@ -7,14 +7,28 @@ import java.util.function.Predicate;
 
 public class MapSchema extends BaseSchema {
 
+    public MapSchema() {
+        this.addPredicate(Map.class::isInstance);
+    }
+
     public MapSchema required() {
         this.setState(new UseRequirement());
-        this.addPredicate(Map.class::isInstance);
         return this;
     }
 
     public MapSchema sizeof(int size) {
         Predicate<Object> predicate = map -> ((Map) map).size() == size;
+        this.addPredicate(predicate);
+        return this;
+    }
+
+    public MapSchema shape(Map<String, BaseSchema> schemas) {
+        Predicate<Object> predicate = map -> schemas.entrySet().stream()
+                .allMatch(entry -> {
+                    Object key = entry.getKey();
+                    BaseSchema schema = entry.getValue();
+                    return schema.isValid(((Map) map).get(key));
+                });
         this.addPredicate(predicate);
         return this;
     }
