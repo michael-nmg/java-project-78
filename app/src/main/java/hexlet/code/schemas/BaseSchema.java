@@ -14,7 +14,7 @@ public abstract class BaseSchema {
 
     public abstract BaseSchema required();
 
-    public boolean isValid(Object object) {
+    public final boolean isValid(Object object) {
         if (requirement.notUsed() && (object == null || object == "")) {
             return true;
         }
@@ -23,11 +23,11 @@ public abstract class BaseSchema {
                 .allMatch(predicate -> predicate.test(object));
     }
 
-    public void addPredicate(Predicate<Object> predicate) {
+    public final void addPredicate(Predicate<Object> predicate) {
         predicates.add(predicate);
     }
 
-    public void setState(Requirement state) {
+    public final void setState(Requirement state) {
         this.requirement = state;
     }
 

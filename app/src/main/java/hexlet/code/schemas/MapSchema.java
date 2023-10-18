@@ -5,7 +5,7 @@ import hexlet.code.requirements.UseRequirement;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class MapSchema extends BaseSchema {
+public final class MapSchema extends BaseSchema {
 
     public MapSchema() {
         this.addPredicate(Map.class::isInstance);
