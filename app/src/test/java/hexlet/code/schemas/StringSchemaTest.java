@@ -23,9 +23,11 @@ class StringSchemaTest {
     void nonRequiredTest() {
         assertTrue(schema.isValid(""));
         assertTrue(schema.isValid(null));
+        assertTrue(schema.contains("word").isValid(""));
         assertTrue(schema.contains("word").isValid(null));
 
         schema.required();
+        assertFalse(schema.isValid(""));
         assertFalse(schema.isValid(null));
     }
 
@@ -35,8 +37,10 @@ class StringSchemaTest {
         assertFalse(schema.isValid(""));
         assertFalse(schema.isValid(null));
         assertFalse(schema.isValid(5));
-        assertTrue(schema.isValid("what does the fox say"));
         assertTrue(schema.isValid("hexlet"));
+        assertTrue(schema.isValid("what does the fox say"));
+        assertFalse(schema.contains("word").isValid(""));
+        assertFalse(schema.contains("word").isValid(null));
     }
 
     @Test
