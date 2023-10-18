@@ -21,8 +21,8 @@ compileJava {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 test {
@@ -32,10 +32,6 @@ test {
 testlogger {
     theme 'mocha'
     slowThreshold 5000
-}
-
-application {
-    mainClass = 'heclet.code.App'
 }
 
 run {
