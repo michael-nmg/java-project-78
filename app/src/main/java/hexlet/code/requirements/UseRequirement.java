@@ -1,7 +1,7 @@
 package hexlet.code.requirements;
 
 public class UseRequirement implements Requirement {
-    public boolean notUse() {
+    public boolean notUsed() {
         return false;
     }
 }
