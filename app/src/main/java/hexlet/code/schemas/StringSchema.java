@@ -1,14 +1,20 @@
 package hexlet.code.schemas;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 
 import hexlet.code.requirements.UseRequirement;
 
 public final class StringSchema extends BaseSchema {
 
+    public StringSchema() {
+        addPredicate(String.class::isInstance);
+    }
+
     public StringSchema required() {
         setState(new UseRequirement());
-        addPredicate(String.class::isInstance);
+        addPredicate(Objects::nonNull);
+        addPredicate(obj -> !Objects.equals(obj, ""));
         return this;
     }
 
