@@ -1,14 +1,19 @@
 package hexlet.code.schemas;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 
 import hexlet.code.requirements.UseRequirement;
 
 public final class NumberSchema extends BaseSchema {
 
+    public NumberSchema() {
+        addPredicate(Integer.class::isInstance);
+    }
+
     public NumberSchema required() {
         setState(new UseRequirement());
-        addPredicate(Integer.class::isInstance);
+        addPredicate(Objects::nonNull);
         return this;
     }
 
