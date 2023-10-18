@@ -3,6 +3,7 @@ package hexlet.code;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
+import hexlet.code.schemas.MapSchema;
 import hexlet.code.schemas.NumberSchema;
 import hexlet.code.schemas.StringSchema;
 
@@ -28,6 +29,13 @@ class ValidatorTest {
     void numberSchemaTest() {
         var actual = validator.number().getClass();
         var expected = NumberSchema.class;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void mapSchemaTest() {
+        var actual = validator.map().getClass();
+        var expected = MapSchema.class;
         assertEquals(expected, actual);
     }
 
